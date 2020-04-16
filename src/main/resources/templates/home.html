@@ -1,88 +1,521 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-        <title>Corona Virus Tracker Application</title>
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <style type="text/css">
 
-.paging-nav {
-  text-align: right;
-  padding-top: 2px;
-}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-.paging-nav a {
-  margin: auto 1px;
-  text-decoration: none;
-  display: inline-block;
-  padding: 1px 7px;
-  background: #91b9e6;
-  color: white;
-  border-radius: 3px;
-}
+<title>Corona - Dashboard</title>
 
-.paging-nav .selected-page {
-  background: #187ed5;
-  font-weight: bold;
-}
+<!-- Custom fonts for this template-->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
 
-.paging-nav,
-#tableData {
-  width: 800px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-}
-</style>
-        </head>
-        <body>
-<h1 style="margin-top:150px; text-align:center;">Corona Virus Tracker Application</h1>
-<table id="tableData" class="table table-bordered table-striped">
-          <thead>
-    <tr>
-              <th>S.No.</th>
-              <th>Country</th>
-              <th>Confirmed</th>
-              <th>Deaths</th>
-              <th>Recovered</th>
-              <th>Active</th>
-            </tr>
-  </thead>
-          <tbody>
-    <tr th:each="stat,iter : ${stats}">
-            <td th:text="${iter.index+1}"></td>
-            <td th:text="${stat.country}"></td>
-            <td th:text="${stat.confirmed}">0</td>
-            <td th:text="${stat.deaths}">0</td>
-            <td th:text="${stat.recovered}">0</td>
-            <td th:text="${stat.active}">0</td>
-        </tr>
-    
-  </tbody>
-        </table>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/paging.js"></script> 
-<script type="text/javascript">
-            $(document).ready(function() {
-                $('#tableData').paging({limit:12});
-            });
-        </script>
-        <script type="text/javascript">
+<!-- Custom styles for this template-->
+<link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
+</head>
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+<body id="page-top">
 
-</script>
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+					<button id="sidebarToggleTop"
+						class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<form
+						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+						<h2>Covid -19 Home</h2>
+					</form>
+
+				</nav>
+				<div class="container-fluid">
+
+
+					<!-- Content Row -->
+					<div class="row">
+
+						<!-- Earnings (Monthly) Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-primary shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-primary text-uppercase mb-1">Confirmed
+												cases</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												<p th:text="${confirmed}">Test</p>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-check fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Earnings (Monthly) Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-success shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-success text-uppercase mb-1">Deaths</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												<p th:text="${deaths}">Test</p>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-skull-crossbones fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Earnings (Monthly) Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-info shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-info text-uppercase mb-1">Active</div>
+											<div class="row no-gutters align-items-center">
+												<div class="col-auto">
+													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+														<p th:text="${active}">Test</p>
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-user fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pending Requests Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-warning shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-warning text-uppercase mb-1">Recovered</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												<p th:text="${recovered}">Test</p>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-user fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Content Row -->
+
+					<div class="row">
+
+						<!-- Area Chart -->
+						<div class="col-xl-6 col-lg-7">
+							<div class="card shadow mb-4">
+								<!-- Card Header - Dropdown -->
+								<div
+									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+									<h6 class="m-0 font-weight-bold text-primary">Earnings
+										Overview</h6>
+									<div class="dropdown no-arrow">
+										<a class="dropdown-toggle" href="#" role="button"
+											id="dropdownMenuLink" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false"> <i
+											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+										</a>
+										<div
+											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+											aria-labelledby="dropdownMenuLink">
+											<div class="dropdown-header">Dropdown Header:</div>
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</div>
+									</div>
+								</div>
+								<!-- Card Body -->
+								<div class="card-body">
+									<div id="chart2" class="chart-area"></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pie Chart -->
+						<div class="col-xl-6 col-lg-5">
+							<div class="card shadow mb-4">
+								<!-- Card Header - Dropdown -->
+								<div
+									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+									<h6 class="m-0 font-weight-bold text-primary">Revenue
+										Sources</h6>
+									<div class="dropdown no-arrow">
+										<a class="dropdown-toggle" href="#" role="button"
+											id="dropdownMenuLink" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false"> <i
+											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+										</a>
+										<div
+											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+											aria-labelledby="dropdownMenuLink">
+											<div class="dropdown-header">Dropdown Header:</div>
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</div>
+									</div>
+								</div>
+								<!-- Card Body -->
+								<div class="card-body">
+									<div id="chart1" class="chart-pie pt-4 pb-2"></div>
+									<div class="mt-4 text-center small">
+										<span class="mr-2"> <i
+											class="fas fa-circle text-primary"></i>
+										</span> <span class="mr-2"> <i
+											class="fas fa-circle text-success"></i>
+										</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Content Row -->
+					<div class="row">
+
+						<!-- Content Column -->
+						<div class="col-lg-6 mb-4">
+
+							<!-- Project Card Example -->
+							<div class="card shadow mb-4" style="height: 370px;overflow-y:scroll;">
+								<table id="tableData"
+									class="table table-bordered table-striped ">
+									<thead>
+										<tr>
+											<th>S.No.</th>
+											<th>Country</th>
+											<th>Confirmed</th>
+											<th>Deaths</th>
+											<th>Recovered</th>
+											<th>Active</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="stat,iter : ${stats}">
+											<td th:text="${iter.index+1}"></td>
+											<td th:text="${stat.country}"></td>
+											<td th:text="${stat.confirmed}">0</td>
+											<td th:text="${stat.deaths}">0</td>
+											<td th:text="${stat.recovered}">0</td>
+											<td th:text="${stat.active}">0</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+							</div>
+							
+							
+							
+							
+							<!-- Color System -->
+							<!-- <div class="row">
+								<div class="col-lg-6 mb-4">
+									<div class="card bg-primary text-white shadow">
+										<div class="card-body">
+											Primary
+											<div class="text-white-50 small">#4e73df</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 mb-4">
+									<div class="card bg-success text-white shadow">
+										<div class="card-body">
+											Success
+											<div class="text-white-50 small">#1cc88a</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 mb-4">
+									<div class="card bg-info text-white shadow">
+										<div class="card-body">
+											Info
+											<div class="text-white-50 small">#36b9cc</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 mb-4">
+									<div class="card bg-warning text-white shadow">
+										<div class="card-body">
+											Warning
+											<div class="text-white-50 small">#f6c23e</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 mb-4">
+									<div class="card bg-danger text-white shadow">
+										<div class="card-body">
+											Danger
+											<div class="text-white-50 small">#e74a3b</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 mb-4">
+									<div class="card bg-secondary text-white shadow">
+										<div class="card-body">
+											Secondary
+											<div class="text-white-50 small">#858796</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>  -->
+
+						<div class="col-lg-6 mb-4">
+
+<div class="card shadow mb-4" style="height: 370px;overflow-y:scroll;">
+								<table id="tableData"
+									class="table table-bordered table-striped ">
+									<thead>
+										<tr>
+											<th>S.No.</th>
+											<th>State</th>
+											<th>Confirmed</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="stat,iter : ${india_states}">
+											<td th:text="${iter.index+1}"></td>
+											<td th:text="${stat.state}"></td>
+											<td th:text="${stat.confirmed}">0</td>
+											
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+
+							<!-- Illustrations -->
+							
+							<!-- Approach -->
+							
+
+						</div>
+					</div>
+					
+					<div class="row">
+								<div class="col-lg-6 mb-4">
+							<div class="card shadow mb-4">
+								<div class="card-header py-3">
+									<h6 class="m-0 font-weight-bold text-primary">Important
+										links</h6>
+								</div>
+								<div class="card-body">
+									<a target="_blank" rel="nofollow" href="https://undraw.co/">Corona
+										Worldometer</a>
+								</div>
+								<div class="card-body">
+									<a target="_blank" rel="nofollow" href="https://undraw.co/">Aarogya
+										setu app download</a>
+								</div>
+								<div class="card-body">
+									<a target="_blank" rel="nofollow" href="https://undraw.co/">Corona
+										helpline numbers</a>
+								</div>
+								<div class="card-body">
+									<a target="_blank" rel="nofollow" href="https://undraw.co/">PM
+										Relief fund</a>
+								</div>
+							</div>
+							</div>
+							</div>
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; Your Website 2019</span>
+					</div>
+				</div>
+			</footer>
+			<!-- End of Footer -->
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready
+					to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="login.html">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
+
+	<!-- Page level plugins -->
+	<script src="vendor/chart.js/Chart.min.js"></script>
+
+	<!-- Page level custom scripts -->
+	<script src="js/demo/chart-area-demo.js"></script>
+	<script type="text/javascript"
+		src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<script type="text/javascript" th:inline="javascript">
+		var chart = new CanvasJS.Chart("chart1",
+		    {
+		        animationEnabled: true,
+		        startAngle: 60,
+				//innerRadius: 60,
+				indexLabelFontSize: 27,
+				indexLabel: "{label} - #percent%",
+				toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+		        title: {
+		            text: "Top 10 country plus India Corona Pie Chart (Total cases)",
+		        },
+		        data: [
+		        {
+		            type: "doughnut",
+		            showInLegend: true,
+		            dataPoints: getData()
+		        },
+		        
+		        ]
+		    });
+		chart.render();
+		
+		
+		function getData(){
+			var covidData = [[${stats}]];
+			var data = [];
+		for (var i=0;i<covidData.length;i++){
+			var conf = parseInt(covidData[i].confirmed);	
+		
+			if((data.length>=0 && data.length<=10) || covidData[i].country == 'India') {
+               var obj = { y: covidData[i].confirmed, label: covidData[i].country }
+               data.push(obj);
+			}
+			
+		}
+		return data;
+		}
+		
+		var chart = new CanvasJS.Chart("chart2",
+			    {
+			        animationEnabled: true,
+			        title: {
+			            text: "Top 10 Country plus India cases"
+			        },
+			        axisX: {
+			            interval: 10,
+			        },
+			        data: [
+			        {
+			            type: "column",
+			            legendMarkerType: "triangle",
+			            legendMarkerColor: "green",
+			            color: "rgba(255,12,32,.3)",
+			            showInLegend: true,
+			            legendText: "Country wise covid cases",
+			            dataPoints: getcolData()
+			        },
+			        ]
+			    });
+			chart.render();
+			
+			function getcolData(){
+				var covidData = [[${stats}]];
+				var data = [];
+				var counter =1;
+			for (var i=0;i<covidData.length;i++){
+				if((data.length>=0 && data.length<=10) || covidData[i].country == 'India') {
+	               var obj = { x: counter*10, y: covidData[i].confirmed, label: covidData[i].country }
+	               data.push(obj);
+	               counter++;
+				}
+			}
+			return data;
+			}
+		
+		</script>
 
 </body>
+
 </html>

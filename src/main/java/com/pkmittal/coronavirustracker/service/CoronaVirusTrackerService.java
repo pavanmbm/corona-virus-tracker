@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
@@ -22,9 +23,15 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.pkmittal.coronavirustracker.model.CoronaData;
 import com.pkmittal.coronavirustracker.model.LocationStats;
 
 @Service
@@ -82,6 +89,31 @@ public class CoronaVirusTrackerService {
 					.sorted(Comparator.comparingInt(LocationStats::getConfirmed).reversed())
 					.collect(Collectors.toList());
 		}
+
+	}
+	
+	public List<CoronaData> fetchIndiaData() throws IOException, InterruptedException, JSONException {
+		HttpGet request = new HttpGet("https://api.covid19india.org/v2/state_district_wise.json");
+		List<CoronaData> list = new ArrayList<>();
+		try (CloseableHttpResponse response = httpClient.execute(request)) {
+
+			HttpEntity entity = response.getEntity();
+
+			// return it as a String
+			String result = EntityUtils.toString(entity);
+			JSONArray array = new JSONArray(result);
+			Gson gson = new GsonBuilder().create();
+			for(int i = 0; i < array.length(); i++){
+				JSONObject objectInArray = array.getJSONObject(i);
+				CoronaData data = gson.fromJson(objectInArray.toString(), CoronaData.class);
+				data.setConfirmed(data.getDistrictData().stream().mapToInt(p -> p.getConfirmed()).sum());
+				list.add(data);
+			}
+			list = list.stream()
+					.sorted(Comparator.comparingInt(CoronaData::getConfirmed).reversed())
+					.collect(Collectors.toList());
+		}
+		return list;
 
 	}
 

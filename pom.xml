@@ -20,6 +20,22 @@
 	</properties>
 
 	<dependencies>
+	<!-- https://mvnrepository.com/artifact/org.json/json -->
+<!-- https://mvnrepository.com/artifact/com.unboundid.components/json -->
+<!-- https://mvnrepository.com/artifact/com.unboundid.components/json -->
+<dependency>
+    <groupId>com.unboundid.components</groupId>
+    <artifactId>json</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    </dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
