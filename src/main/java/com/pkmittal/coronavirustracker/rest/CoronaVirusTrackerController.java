@@ -41,7 +41,7 @@ public class CoronaVirusTrackerController {
 		c.setTime(new Date());
 		c.add(Calendar.DATE, -1);
 		String strDate = dateformat.format(c.getTime());
-		model.addAttribute("date", strDate);
+		model.addAttribute("date", "last updated on "+strDate);
 		model.addAttribute("confirmed", format.format(allStats.stream().mapToInt(p -> p.getConfirmed()).sum()));
 		model.addAttribute("active", format.format(allStats.stream().mapToInt(p -> p.getActive()).sum()));
 		model.addAttribute("deaths", format.format(allStats.stream().mapToInt(p -> p.getDeaths()).sum()));

@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-
+<link rel='icon' href='favicon.ico' type='image/x-icon'>
 <title>Corona - Dashboard</title>
 
 <!-- Custom fonts for this template-->
@@ -20,11 +20,13 @@
 	rel="stylesheet">
 
 <!-- Custom styles for this template-->
-<link href="css/sb-admin-2.min.css" rel="stylesheet">
+<link href="css/sb-admin-2.min.css?version=1.0" rel="stylesheet">
 <style>
 tbody {
 color :blue;
 }
+.table-fixed          { overflow-y: auto; height: 370px; }
+.table-fixed thead th { position: sticky; top: 0; }
 
 </style>
 </head>
@@ -45,7 +47,7 @@ color :blue;
 
 					<form
 						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-						<h2>Covid -19 Home </h2><span>Data as on <p th:text="${date}">Test</p></span>
+						<h2 style="margin-left:600px;">Covid -19 Home </h2><span th:text="${date}" style="margin-left:600px;"></span>
 					</form>
 
 				</nav>
@@ -244,10 +246,10 @@ color :blue;
 								<div
 									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 									<h6 class="m-0 font-weight-bold text-primary-1">Country wise data</h6>
-									
+									<input class="form-control" id="myInput" type="text" placeholder="Search.." style="width:67% !important">
 								</div>
 								<!-- Card Body -->
-								<div class="card-body" style="height: 370px;overflow-y:scroll;">
+								<div class="card-body table-fixed">
 									<table id="tableData"
 									class="table table-bordered table-striped ">
 									<thead>
@@ -260,7 +262,7 @@ color :blue;
 											<th>Active</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody id="worldData">
 										<tr th:each="stat,iter : ${stats}">
 											<td th:text="${iter.index+1}"></td>
 											<td th:text="${stat.country}"></td>
@@ -339,25 +341,10 @@ color :blue;
 								<div
 									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 									<h6 class="m-0 font-weight-bold text-primary-1">India state wise Data</h6>
-									<div class="dropdown no-arrow">
-										<a class="dropdown-toggle" href="#" role="button"
-											id="dropdownMenuLink" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false"> <i
-											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-											aria-labelledby="dropdownMenuLink">
-											<div class="dropdown-header">Dropdown Header:</div>
-											<a class="dropdown-item" href="#">Action</a> <a
-												class="dropdown-item" href="#">Another action</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Something else here</a>
-										</div>
-									</div>
+									<input class="form-control" id="myInput1" type="text" placeholder="Search.." style="width:67% !important">
 								</div>
 								<!-- Card Body -->
-								<div class="card-body" style="height: 370px;overflow-y:scroll;">
+								<div class="card-body table-fixed">
 									<table id="tableData"
 									class="table table-bordered table-striped ">
 									<thead>
@@ -370,7 +357,7 @@ color :blue;
 											<th>Active</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody id="indiaData">
 										<tr th:each="stat,iter : ${india_states}">
 											<td th:text="${iter.index+1}"></td>
 											<td th:text="${stat.state}"></td>
@@ -599,6 +586,24 @@ color :blue;
 			}
 			return data;
 			}
+			
+			$(document).ready(function(){
+				  $("#myInput").on("keyup", function() {
+				    var value = $(this).val().toLowerCase();
+				    $("#worldData tr").filter(function() {
+				      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				    });
+				  });
+				});
+			
+			$(document).ready(function(){
+				  $("#myInput1").on("keyup", function() {
+				    var value = $(this).val().toLowerCase();
+				    $("#indiaData tr").filter(function() {
+				      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				    });
+				  });
+				});
 		
 		</script>
 
