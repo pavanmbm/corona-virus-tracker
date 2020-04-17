@@ -21,7 +21,12 @@
 
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
+<style>
+tbody {
+color :blue;
+}
 
+</style>
 </head>
 
 <body id="page-top">
@@ -36,16 +41,11 @@
 			<div id="content">
 
 				<nav
-					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-					<button id="sidebarToggleTop"
-						class="btn btn-link d-md-none rounded-circle mr-3">
-						<i class="fa fa-bars"></i>
-					</button>
+					class="navbar navbar-expand navbar-light bg-white mb-4 static-top shadow">
 
 					<form
 						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-						<h2>Covid -19 Home</h2>
+						<h2>Covid -19 Home </h2><span>Data as on <p th:text="${date}">Test</p></span>
 					</form>
 
 				</nav>
@@ -55,7 +55,6 @@
 					<!-- Content Row -->
 					<div class="row">
 
-						<!-- Earnings (Monthly) Card Example -->
 						<div class="col-xl-3 col-md-6 mb-4">
 							<div class="card border-left-primary shadow h-100 py-2">
 								<div class="card-body">
@@ -76,7 +75,6 @@
 							</div>
 						</div>
 
-						<!-- Earnings (Monthly) Card Example -->
 						<div class="col-xl-3 col-md-6 mb-4">
 							<div class="card border-left-success shadow h-100 py-2">
 								<div class="card-body">
@@ -96,7 +94,6 @@
 							</div>
 						</div>
 
-						<!-- Earnings (Monthly) Card Example -->
 						<div class="col-xl-3 col-md-6 mb-4">
 							<div class="card border-left-info shadow h-100 py-2">
 								<div class="card-body">
@@ -121,7 +118,6 @@
 							</div>
 						</div>
 
-						<!-- Pending Requests Card Example -->
 						<div class="col-xl-3 col-md-6 mb-4">
 							<div class="card border-left-warning shadow h-100 py-2">
 								<div class="card-body">
@@ -140,94 +136,134 @@
 								</div>
 							</div>
 						</div>
+						
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-primary shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-primary text-uppercase mb-1">Confirmed
+												cases (India)</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												<p th:text="${confirmedIndia}">Test</p>
+											</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800" style="color:red !important">
+												<p th:text="${confirmedIndiaDelta}">Test</p>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-check fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-success shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-success text-uppercase mb-1">Deaths (India)</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												<p th:text="${deathsIndia}">Test</p>
+											</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800" style="color:red !important">
+												<p th:text="${deathsIndiaDelta}">Test</p>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-skull-crossbones fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-info shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-info text-uppercase mb-1">Active (India)</div>
+											<div class="row no-gutters align-items-center">
+												<div class="col-auto">
+													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+														<p th:text="${activeIndia}">Test</p>
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-user fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-warning shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-warning text-uppercase mb-1">Recovered (India)</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												<p th:text="${recoveredIndia}">Test</p>
+											</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800" style="color:red !important">
+												<p th:text="${recoveredIndiaDelta}">Test</p>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-user fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
 					</div>
 
 					<!-- Content Row -->
 
-					<div class="row">
-
-						<!-- Area Chart -->
-						<div class="col-xl-6 col-lg-7">
-							<div class="card shadow mb-4">
-								<!-- Card Header - Dropdown -->
-								<div
-									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary">Earnings
-										Overview</h6>
-									<div class="dropdown no-arrow">
-										<a class="dropdown-toggle" href="#" role="button"
-											id="dropdownMenuLink" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false"> <i
-											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-											aria-labelledby="dropdownMenuLink">
-											<div class="dropdown-header">Dropdown Header:</div>
-											<a class="dropdown-item" href="#">Action</a> <a
-												class="dropdown-item" href="#">Another action</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Something else here</a>
-										</div>
-									</div>
-								</div>
-								<!-- Card Body -->
-								<div class="card-body">
-									<div id="chart2" class="chart-area"></div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Pie Chart -->
-						<div class="col-xl-6 col-lg-5">
-							<div class="card shadow mb-4">
-								<!-- Card Header - Dropdown -->
-								<div
-									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary">Revenue
-										Sources</h6>
-									<div class="dropdown no-arrow">
-										<a class="dropdown-toggle" href="#" role="button"
-											id="dropdownMenuLink" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false"> <i
-											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-											aria-labelledby="dropdownMenuLink">
-											<div class="dropdown-header">Dropdown Header:</div>
-											<a class="dropdown-item" href="#">Action</a> <a
-												class="dropdown-item" href="#">Another action</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Something else here</a>
-										</div>
-									</div>
-								</div>
-								<!-- Card Body -->
-								<div class="card-body">
-									<div id="chart1" class="chart-pie pt-4 pb-2"></div>
-									<div class="mt-4 text-center small">
-										<span class="mr-2"> <i
-											class="fas fa-circle text-primary"></i>
-										</span> <span class="mr-2"> <i
-											class="fas fa-circle text-success"></i>
-										</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					
 
 					<!-- Content Row -->
 					<div class="row">
 
 						<!-- Content Column -->
-						<div class="col-lg-6 mb-4">
-
-							<!-- Project Card Example -->
-							<div class="card shadow mb-4" style="height: 370px;overflow-y:scroll;">
-								<table id="tableData"
+						<div class="col-xl-6 col-lg-5">
+							<div class="card shadow mb-4">
+								<!-- Card Header - Dropdown -->
+								<div
+									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+									<h6 class="m-0 font-weight-bold text-primary">Country wise data</h6>
+									<div class="dropdown no-arrow">
+										<a class="dropdown-toggle" href="#" role="button"
+											id="dropdownMenuLink" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false"> <i
+											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+										</a>
+										<div
+											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+											aria-labelledby="dropdownMenuLink">
+											<div class="dropdown-header">Dropdown Header:</div>
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</div>
+									</div>
+								</div>
+								<!-- Card Body -->
+								<div class="card-body" style="height: 370px;overflow-y:scroll;">
+									<table id="tableData"
 									class="table table-bordered table-striped ">
 									<thead>
 										<tr>
@@ -251,8 +287,9 @@
 
 									</tbody>
 								</table>
+								</div>
 							</div>
-							</div>
+						</div>
 							
 							
 							
@@ -311,17 +348,41 @@
 
 						</div>  -->
 
-						<div class="col-lg-6 mb-4">
-
-<div class="card shadow mb-4" style="height: 370px;overflow-y:scroll;">
-								<table id="tableData"
+						<div class="col-xl-6 col-lg-5">
+							<div class="card shadow mb-4">
+								<!-- Card Header - Dropdown -->
+								<div
+									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+									<h6 class="m-0 font-weight-bold text-primary">India state wise Data</h6>
+									<div class="dropdown no-arrow">
+										<a class="dropdown-toggle" href="#" role="button"
+											id="dropdownMenuLink" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false"> <i
+											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+										</a>
+										<div
+											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+											aria-labelledby="dropdownMenuLink">
+											<div class="dropdown-header">Dropdown Header:</div>
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</div>
+									</div>
+								</div>
+								<!-- Card Body -->
+								<div class="card-body" style="height: 370px;overflow-y:scroll;">
+									<table id="tableData"
 									class="table table-bordered table-striped ">
 									<thead>
 										<tr>
 											<th>S.No.</th>
-											<th>State</th>
+											<th>Country</th>
 											<th>Confirmed</th>
-											
+											<th>Deaths</th>
+											<th>Recovered</th>
+											<th>Active</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -329,20 +390,92 @@
 											<td th:text="${iter.index+1}"></td>
 											<td th:text="${stat.state}"></td>
 											<td th:text="${stat.confirmed}">0</td>
-											
+											<td th:text="${stat.deaths}">0</td>
+											<td th:text="${stat.recovered}">0</td>
+											<td th:text="${stat.active}">0</td>
 										</tr>
 
 									</tbody>
 								</table>
+								</div>
 							</div>
-
-							<!-- Illustrations -->
-							
-							<!-- Approach -->
-							
-
 						</div>
 					</div>
+					
+					<div class="row">
+
+						<!-- Area Chart -->
+						<div class="col-xl-6 col-lg-7">
+							<div class="card shadow mb-4">
+								<!-- Card Header - Dropdown -->
+								<div
+									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+									<h6 class="m-0 font-weight-bold text-primary">Line Chart</h6>
+									<div class="dropdown no-arrow">
+										<a class="dropdown-toggle" href="#" role="button"
+											id="dropdownMenuLink" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false"> <i
+											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+										</a>
+										<div
+											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+											aria-labelledby="dropdownMenuLink">
+											<div class="dropdown-header">Dropdown Header:</div>
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</div>
+									</div>
+								</div>
+								<!-- Card Body -->
+								<div class="card-body">
+									<div id="chart2" class="chart-area"></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pie Chart -->
+						<div class="col-xl-6 col-lg-5">
+							<div class="card shadow mb-4">
+								<!-- Card Header - Dropdown -->
+								<div
+									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+									<h6 class="m-0 font-weight-bold text-primary">Pie Chart</h6>
+									<div class="dropdown no-arrow">
+										<a class="dropdown-toggle" href="#" role="button"
+											id="dropdownMenuLink" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false"> <i
+											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+										</a>
+										<div
+											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+											aria-labelledby="dropdownMenuLink">
+											<div class="dropdown-header">Dropdown Header:</div>
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</div>
+									</div>
+								</div>
+								<!-- Card Body -->
+								<div class="card-body">
+									<div id="chart1" class="chart-pie pt-4 pb-2"></div>
+									<div class="mt-4 text-center small">
+										<span class="mr-2"> <i
+											class="fas fa-circle text-primary"></i>
+										</span> <span class="mr-2"> <i
+											class="fas fa-circle text-success"></i>
+										</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
 					
 					<div class="row">
 								<div class="col-lg-6 mb-4">
@@ -352,19 +485,19 @@
 										links</h6>
 								</div>
 								<div class="card-body">
-									<a target="_blank" rel="nofollow" href="https://undraw.co/">Corona
+									<a target="_blank" rel="nofollow" href="https://www.worldometers.info/coronavirus/">Corona
 										Worldometer</a>
 								</div>
 								<div class="card-body">
-									<a target="_blank" rel="nofollow" href="https://undraw.co/">Aarogya
+									<a target="_blank" rel="nofollow" href="https://www.mygov.in/aarogya-setu-app/">Aarogya
 										setu app download</a>
 								</div>
 								<div class="card-body">
-									<a target="_blank" rel="nofollow" href="https://undraw.co/">Corona
+									<a target="_blank" rel="nofollow" href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf">Corona
 										helpline numbers</a>
 								</div>
 								<div class="card-body">
-									<a target="_blank" rel="nofollow" href="https://undraw.co/">PM
+									<a target="_blank" rel="nofollow" href="https://pmnrf.gov.in/en/">PM
 										Relief fund</a>
 								</div>
 							</div>
@@ -381,7 +514,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Your Website 2019</span>
+						<span>Copyright &copy; PKMittal 2020</span>
 					</div>
 				</div>
 			</footer>
@@ -399,27 +532,7 @@
 	</a>
 
 	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>
@@ -431,11 +544,6 @@
 	<!-- Custom scripts for all pages-->
 	<script src="js/sb-admin-2.min.js"></script>
 
-	<!-- Page level plugins -->
-	<script src="vendor/chart.js/Chart.min.js"></script>
-
-	<!-- Page level custom scripts -->
-	<script src="js/demo/chart-area-demo.js"></script>
 	<script type="text/javascript"
 		src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	<script type="text/javascript" th:inline="javascript">

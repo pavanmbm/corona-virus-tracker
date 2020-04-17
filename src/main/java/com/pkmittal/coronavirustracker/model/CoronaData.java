@@ -1,18 +1,26 @@
 package com.pkmittal.coronavirustracker.model;
 
-import java.util.List;
-
 public class CoronaData {
 
 	private String state;
-	private List<DistrictData> districtData;
-	private Integer confirmed;
+	private String confirmed;
+	private String deaths;
+	private String recovered;
+	private String active;
 	
-	public void setConfirmed(Integer confirmed) {
+	public void setActive(String active) {
+		this.active = active;
+	}
+	
+	public String getActive() {
+		return active;
+	}
+	
+	public void setConfirmed(String confirmed) {
 		this.confirmed = confirmed;
 	}
 	
-	public Integer getConfirmed() {
+	public String getConfirmed() {
 		return confirmed;
 	}
 	public String getState() {
@@ -21,12 +29,21 @@ public class CoronaData {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public List<DistrictData> getDistrictData() {
-		return districtData;
+
+	public String getDeaths() {
+		return deaths;
 	}
-	public void setDistrictData(List<DistrictData> districtData) {
-		this.districtData = districtData;
+
+	public void setDeaths(String deaths) {
+		this.deaths = deaths;
 	}
-	
+
+	public String getRecovered() {
+		return recovered;
+	}
+
+	public void setRecovered(String recovered) {
+		this.recovered = recovered;
+	}
 	
 }
