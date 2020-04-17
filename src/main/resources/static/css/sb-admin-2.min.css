@@ -9013,6 +9013,10 @@ supports ((position:-webkit-sticky ) or (position:sticky )){ .
 	color: red !important
 }
 
+.text-primary-1 {
+  color: #4e73df !important;
+}
+
 a.text-primary:focus, a.text-primary:hover {
 	color: #224abe !important
 }
