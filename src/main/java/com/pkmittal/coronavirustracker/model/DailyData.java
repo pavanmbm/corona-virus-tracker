@@ -1,5 +1,8 @@
 package com.pkmittal.coronavirustracker.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class DailyData {
 	
 	private String totalconfirmed;
@@ -31,6 +34,12 @@ public class DailyData {
 		this.totalrecovered = totalrecovered;
 	}
 	
-	
+	public static void main(String[] args) throws ParseException {
+		String str = "06 April";
+		
+		SimpleDateFormat format = new SimpleDateFormat("dd MMM");
+		SimpleDateFormat format1 = new SimpleDateFormat("dd MMM");
+		System.out.println(format1.format(format.parse(str)));
+	}
 
 }

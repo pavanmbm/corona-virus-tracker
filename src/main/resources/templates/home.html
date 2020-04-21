@@ -21,15 +21,23 @@
 
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css?version=1.0" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link
+	href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"
+	rel="stylesheet">
 <style>
 tbody {
-color :blue;
+	color: blue;
 }
-.table-fixed          { overflow-y: auto; height: 370px; }
-.table-fixed thead th { position: sticky; top: 0; }
 
+.table-fixed {
+	overflow-y: auto;
+	height: 370px;
+}
 
+.table-fixed thead th {
+	position: sticky;
+	top: 0;
+}
 </style>
 </head>
 
@@ -45,12 +53,9 @@ color :blue;
 			<div id="content">
 
 				<nav
-					class="navbar navbar-expand navbar-light bg-white mb-4 static-top shadow">
-
-					<form
-						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-						<h2 style="margin-left:600px;">Covid -19 Home </h2><span th:text="${date}" style="margin-left:600px;"></span>
-					</form>
+					class="navbar-expand mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-light bg-white mb-4 static-top shadow">
+					<h2 align="center">Covid -19 Home</h2>
+					<span style="color: green; padding-left: 20px;" th:text="${date}"></span>
 
 				</nav>
 				<div class="container-fluid">
@@ -60,7 +65,8 @@ color :blue;
 					<div class="row">
 
 						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2" style="background: rgba(255,7,58,.12549)">
+							<div class="card border-left-primary shadow h-100 py-2"
+								style="background: rgba(255, 7, 58, .12549)">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -80,7 +86,8 @@ color :blue;
 						</div>
 
 						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-success shadow h-100 py-2"  style="background: rgba(108,117,125,.0627451)">
+							<div class="card border-left-success shadow h-100 py-2"
+								style="background: rgba(108, 117, 125, .0627451)">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -123,7 +130,8 @@ color :blue;
 						</div>
 
 						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-warning shadow h-100 py-2" style="background: rgba(40,167,69,.12549)">
+							<div class="card border-left-warning shadow h-100 py-2"
+								style="background: rgba(40, 167, 69, .12549)">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -140,9 +148,10 @@ color :blue;
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2" style="background: rgba(255,7,58,.12549)">
+							<div class="card border-left-primary shadow h-100 py-2"
+								style="background: rgba(255, 7, 58, .12549)">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -152,7 +161,8 @@ color :blue;
 											<div class="h5 mb-0 font-weight-bold text-gray-800">
 												<p th:text="${confirmedIndia}">Test</p>
 											</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800" style="color:red !important">
+											<div class="h5 mb-0 font-weight-bold text-gray-800"
+												style="color: red !important">
 												<p th:text="${confirmedIndiaDelta}">Test</p>
 											</div>
 										</div>
@@ -163,18 +173,21 @@ color :blue;
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-success shadow h-100 py-2" style="background: rgba(108,117,125,.0627451)">
+							<div class="card border-left-success shadow h-100 py-2"
+								style="background: rgba(108, 117, 125, .0627451)">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div
-												class="text-xs font-weight-bold text-success text-uppercase mb-1">Deaths (India)</div>
+												class="text-xs font-weight-bold text-success text-uppercase mb-1">Deaths
+												(India)</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">
 												<p th:text="${deathsIndia}">Test</p>
 											</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800" style="color:black !important">
+											<div class="h5 mb-0 font-weight-bold text-gray-800"
+												style="color: black !important">
 												<p th:text="${deathsIndiaDelta}">Test</p>
 											</div>
 										</div>
@@ -192,7 +205,8 @@ color :blue;
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div
-												class="text-xs font-weight-bold text-info text-uppercase mb-1">Active (India)</div>
+												class="text-xs font-weight-bold text-info text-uppercase mb-1">Active
+												(India)</div>
 											<div class="row no-gutters align-items-center">
 												<div class="col-auto">
 													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
@@ -211,16 +225,19 @@ color :blue;
 						</div>
 
 						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-warning shadow h-100 py-2" style="background: rgba(40,167,69,.12549)">
+							<div class="card border-left-warning shadow h-100 py-2"
+								style="background: rgba(40, 167, 69, .12549)">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div
-												class="text-xs font-weight-bold text-warning text-uppercase mb-1">Recovered (India)</div>
+												class="text-xs font-weight-bold text-warning text-uppercase mb-1">Recovered
+												(India)</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">
 												<p th:text="${recoveredIndia}">Test</p>
 											</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800" style="color:green !important">
+											<div class="h5 mb-0 font-weight-bold text-gray-800"
+												style="color: green !important">
 												<p th:text="${recoveredIndiaDelta}">Test</p>
 											</div>
 										</div>
@@ -231,12 +248,29 @@ color :blue;
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
 
 					<!-- Content Row -->
+<div class="row">
 
-					
+						<div class="col-xl-12 col-lg-7">
+							<div class="card shadow mb-4">
+								<!-- Card Header - Dropdown -->
+								<div
+									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+									<h6 class="m-0 font-weight-bold text-primary-1">Line Chart</h6>
+
+								</div>
+								<!-- Card Body -->
+								<div class="card-body">
+									<div id="timeWiseChartIndia" class="chart-area"></div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
 
 					<!-- Content Row -->
 					<div class="row">
@@ -247,128 +281,110 @@ color :blue;
 								<!-- Card Header - Dropdown -->
 								<div
 									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary-1">Country wise data</h6>
+									<h6 class="m-0 font-weight-bold text-primary-1">Country
+										wise data</h6>
 								</div>
 								<!-- Card Body -->
 								<div class="card-body table-fixed">
 									<table id="worldData"
-									class="table table-bordered table-striped ">
-									<thead>
-										<tr>
-											<th>S.No.</th>
-											<th>Country</th>
-											<th>Confirmed</th>
-											<th>Deaths</th>
-											<th>Recovered</th>
-											<th>Active</th>
-										</tr>
-									</thead>
-									<tbody id="worldData">
-										<tr th:each="stat,iter : ${stats}">
-											<td th:text="${iter.index+1}"></td>
-											<td th:text="${stat.country}"></td>
-											<td th:text="${stat.confirmed}">0</td>
-											<td th:text="${stat.deaths}">0</td>
-											<td th:text="${stat.recovered}">0</td>
-											<td th:text="${stat.active}">0</td>
-										</tr>
+										class="table table-bordered table-striped ">
+										<thead>
+											<tr>
+												<th>S.No.</th>
+												<th>Country</th>
+												<th>Confirmed</th>
+												<th>Deaths</th>
+												<th>Recovered</th>
+												<th>Active</th>
+											</tr>
+										</thead>
+										<tbody id="worldData">
+											<tr th:each="stat,iter : ${stats}">
+												<td th:text="${iter.index+1}"></td>
+												<td th:text="${stat.country}"></td>
+												<td th:text="${stat.confirmed}">0</td>
+												<td th:text="${stat.deaths}">0</td>
+												<td th:text="${stat.recovered}">0</td>
+												<td th:text="${stat.active}">0</td>
+											</tr>
 
-									</tbody>
-								</table>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
-							
-							
-							
-							
-							<!-- Color System -->
-							<!-- <div class="row">
-								<div class="col-lg-6 mb-4">
-									<div class="card bg-primary text-white shadow">
-										<div class="card-body">
-											Primary
-											<div class="text-white-50 small">#4e73df</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 mb-4">
-									<div class="card bg-success text-white shadow">
-										<div class="card-body">
-											Success
-											<div class="text-white-50 small">#1cc88a</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 mb-4">
-									<div class="card bg-info text-white shadow">
-										<div class="card-body">
-											Info
-											<div class="text-white-50 small">#36b9cc</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 mb-4">
-									<div class="card bg-warning text-white shadow">
-										<div class="card-body">
-											Warning
-											<div class="text-white-50 small">#f6c23e</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 mb-4">
-									<div class="card bg-danger text-white shadow">
-										<div class="card-body">
-											Danger
-											<div class="text-white-50 small">#e74a3b</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 mb-4">
-									<div class="card bg-secondary text-white shadow">
-										<div class="card-body">
-											Secondary
-											<div class="text-white-50 small">#858796</div>
-										</div>
-									</div>
-								</div>
-							</div>
 
-						</div>  -->
+
 
 						<div class="col-xl-6 col-lg-5">
 							<div class="card shadow mb-4">
 								<!-- Card Header - Dropdown -->
 								<div
 									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary-1">India state wise Data</h6>
+									<h6 class="m-0 font-weight-bold text-primary-1">India
+										state wise Data</h6>
 								</div>
 								<!-- Card Body -->
 								<div class="card-body table-fixed">
 									<table id="indiaData"
-									class="table table-bordered table-striped ">
-									<thead>
-										<tr>
-											<th>S.No.</th>
-											<th>Country</th>
-											<th>Confirmed</th>
-											<th>Deaths</th>
-											<th>Recovered</th>
-											<th>Active</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr th:each="stat,iter : ${india_states}">
-											<td th:text="${iter.index+1}"></td>
-											<td th:text="${stat.state}"></td>
-											<td th:text="${stat.confirmed}">0</td>
-											<td th:text="${stat.deaths}">0</td>
-											<td th:text="${stat.recovered}">0</td>
-											<td th:text="${stat.active}">0</td>
-										</tr>
+										class="table table-bordered table-striped ">
+										<thead>
+											<tr>
+												<th>S.No.</th>
+												<th>Country</th>
+												<th>Confirmed</th>
+												<th>Deaths</th>
+												<th>Recovered</th>
+												<th>Active</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="stat,iter : ${india_states}">
+												<td th:text="${iter.index+1}"></td>
+												<td th:text="${stat.state}"></td>
+												<td th:text="${stat.confirmed}">0</td>
+												<td th:text="${stat.deaths}">0</td>
+												<td th:text="${stat.recovered}">0</td>
+												<td th:text="${stat.active}">0</td>
+											</tr>
 
-									</tbody>
-								</table>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+
+						<!-- Area Chart -->
+						<div class="col-xl-6 col-lg-7">
+							<div class="card shadow mb-4">
+								<!-- Card Header - Dropdown -->
+								<div
+									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+									<h6 class="m-0 font-weight-bold text-primary-1">Confirmed Cases</h6>
+
+								</div>
+								<!-- Card Body -->
+								<div class="card-body">
+									<div id="chart2" class="chart-area"></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pie Chart -->
+						<div class="col-xl-6 col-lg-7">
+							<div class="card shadow mb-4">
+								<!-- Card Header - Dropdown -->
+								<div
+									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+									<h6 class="m-0 font-weight-bold text-primary-1">Confirmed Cases</h6>
+
+								</div>
+								<!-- Card Body -->
+								<div class="card-body">
+									<div id="chart1" class="chart-area"></div>
 								</div>
 							</div>
 						</div>
@@ -382,92 +398,62 @@ color :blue;
 								<!-- Card Header - Dropdown -->
 								<div
 									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary-1">Line Chart</h6>
-									<div class="dropdown no-arrow">
-										<a class="dropdown-toggle" href="#" role="button"
-											id="dropdownMenuLink" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false"> <i
-											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-											aria-labelledby="dropdownMenuLink">
-											<div class="dropdown-header">Dropdown Header:</div>
-											<a class="dropdown-item" href="#">Action</a> <a
-												class="dropdown-item" href="#">Another action</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Something else here</a>
-										</div>
-									</div>
+									<h6 class="m-0 font-weight-bold text-primary-1">Active Cases</h6>
+
 								</div>
 								<!-- Card Body -->
 								<div class="card-body">
-									<div id="chart2" class="chart-area"></div>
+									<div id="chart3" class="chart-area"></div>
 								</div>
 							</div>
 						</div>
 
 						<!-- Pie Chart -->
-						<div class="col-xl-6 col-lg-5">
+						<div class="col-xl-6 col-lg-7">
 							<div class="card shadow mb-4">
 								<!-- Card Header - Dropdown -->
 								<div
 									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary-1">Pie Chart</h6>
-									<div class="dropdown no-arrow">
-										<a class="dropdown-toggle" href="#" role="button"
-											id="dropdownMenuLink" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false"> <i
-											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-											aria-labelledby="dropdownMenuLink">
-											<div class="dropdown-header">Dropdown Header:</div>
-											<a class="dropdown-item" href="#">Action</a> <a
-												class="dropdown-item" href="#">Another action</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Something else here</a>
-										</div>
-									</div>
+									<h6 class="m-0 font-weight-bold text-primary-1">Active Cases</h6>
+
 								</div>
 								<!-- Card Body -->
 								<div class="card-body">
-									<div id="chart1" class="chart-pie pt-4 pb-2"></div>
-									
+									<div id="chart4" class="chart-area"></div>
 								</div>
 							</div>
 						</div>
 					</div>
-					
-					
-					
+
 					<div class="row">
-								<div class="col-lg-6 mb-4">
+						<div class="col-lg-6 mb-4">
 							<div class="card shadow mb-4">
 								<div class="card-header py-3">
 									<h6 class="m-0 font-weight-bold text-primary-1">Important
 										links</h6>
 								</div>
 								<div class="card-body">
-									<a target="_blank" rel="nofollow" href="https://www.worldometers.info/coronavirus/">Corona
+									<a target="_blank" rel="nofollow"
+										href="https://www.worldometers.info/coronavirus/">Corona
 										Worldometer</a>
 								</div>
 								<div class="card-body">
-									<a target="_blank" rel="nofollow" href="https://www.mygov.in/aarogya-setu-app/">Aarogya
-										setu app download</a>
+									<a target="_blank" rel="nofollow"
+										href="https://www.mygov.in/aarogya-setu-app/">Aarogya setu
+										app download</a>
 								</div>
 								<div class="card-body">
-									<a target="_blank" rel="nofollow" href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf">Corona
+									<a target="_blank" rel="nofollow"
+										href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf">Corona
 										helpline numbers</a>
 								</div>
 								<div class="card-body">
-									<a target="_blank" rel="nofollow" href="https://pmnrf.gov.in/en/">PM
-										Relief fund</a>
+									<a target="_blank" rel="nofollow"
+										href="https://pmnrf.gov.in/en/">PM Relief fund</a>
 								</div>
 							</div>
-							</div>
-							</div>
+						</div>
+					</div>
 
 				</div>
 				<!-- /.container-fluid -->
@@ -497,14 +483,16 @@ color :blue;
 	</a>
 
 	<!-- Logout Modal-->
-	
+
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	
+
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -536,6 +524,7 @@ color :blue;
 		        ]
 		    });
 		chart.render();
+		$(".canvasjs-chart-credit").remove();
 		
 		
 		function getData(){
@@ -545,7 +534,7 @@ color :blue;
 			var conf = parseInt(covidData[i].confirmed);	
 		
 			if((data.length>=0 && data.length<=10) || covidData[i].country == 'India') {
-               var obj = { y: covidData[i].confirmed, label: covidData[i].country }
+               var obj = { y: covidData[i].confirmed, label: covidData[i].country, legendText:covidData[i].country }
                data.push(obj);
 			}
 			
@@ -575,6 +564,7 @@ color :blue;
 			        ]
 			    });
 			chart.render();
+			$(".canvasjs-chart-credit").remove();
 			
 			function getcolData(){
 				var covidData = [[${stats}]];
@@ -589,6 +579,92 @@ color :blue;
 			}
 			return data;
 			}
+			
+			
+			
+			
+			
+			var chart = new CanvasJS.Chart("chart4",
+				    {
+				        animationEnabled: true,
+				        startAngle: 60,
+						//innerRadius: 60,
+						indexLabelFontSize: 27,
+						indexLabel: "{label} - #percent%",
+						toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+				        title: {
+				            text: "Top 10 country plus India Corona Pie Chart (Active cases)",
+				        },
+				        data: [
+				        {
+				            type: "doughnut",
+				            showInLegend: true,
+				            dataPoints: getActiveData()
+				        },
+				        
+				        ]
+				    });
+				chart.render();
+				$(".canvasjs-chart-credit").remove();
+				
+				
+				function getActiveData(){
+					var covidData = [[${stats_active}]];
+					var data = [];
+				for (var i=0;i<covidData.length;i++){
+					var conf = parseInt(covidData[i].confirmed);	
+				
+					if((data.length>=0 && data.length<=10) || covidData[i].country == 'India') {
+		               var obj = { y: covidData[i].active, label: covidData[i].country, legendText:covidData[i].country }
+		               data.push(obj);
+					}
+					
+				}
+				return data;
+				}
+				
+				var chart = new CanvasJS.Chart("chart3",
+					    {
+					        animationEnabled: true,
+					        title: {
+					            text: "Top 10 Country plus India active cases"
+					        },
+					        axisX: {
+					            interval: 10,
+					        },
+					        data: [
+					        {
+					            type: "column",
+					            legendMarkerType: "triangle",
+					            legendMarkerColor: "green",
+					            color: "rgba(255,12,32,.3)",
+					            showInLegend: true,
+					            legendText: "Country wise covid cases (Active)",
+					            dataPoints: getActiveColData()
+					        },
+					        ]
+					    });
+					chart.render();
+					$(".canvasjs-chart-credit").remove();
+					
+					function getActiveColData(){
+						var covidData = [[${stats_active}]];
+						var data = [];
+						var counter =1;
+					for (var i=0;i<covidData.length;i++){
+						if((data.length>=0 && data.length<=10) || covidData[i].country == 'India') {
+			               var obj = { x: counter*10, y: covidData[i].active, label: covidData[i].country }
+			               data.push(obj);
+			               counter++;
+						}
+					}
+					return data;
+					}
+			
+			
+			
+			
+			
 			
 			$(document).ready(function(){
 				  $("#myInput").on("keyup", function() {
@@ -610,6 +686,107 @@ color :blue;
 					  $('#worldData').DataTable();
 					  $('#indiaData').DataTable();
 				});
+			
+			var chart = new CanvasJS.Chart("timeWiseChartIndia", {
+				animationEnabled: true,
+				theme: "light2",
+				title:{
+					text: "Covid Cases India"
+				},
+				axisX:{
+					crosshair: {
+						enabled: true,
+						snapToDataPoint: true
+					}
+				},
+				axisY: {
+					title: "Number of Cases",
+					crosshair: {
+						enabled: true
+					}
+				},
+				toolTip:{
+					shared:true
+				},  
+				legend:{
+					cursor:"pointer",
+					verticalAlign: "bottom",
+					horizontalAlign: "left",
+					dockInsidePlotArea: true
+				},
+				data: [{
+					type: "line",
+					showInLegend: true,
+					name: "Total Confirmed",
+					markerType: "square",
+					color: "red",
+					dataPoints: getLineChartConfirmedData()
+				},
+				{
+					type: "line",
+					showInLegend: true,
+					name: "Total Active",
+					markerType: "square",
+					color: "#F08080",
+					dataPoints: getLineChartActiveData()
+				},
+				{
+					type: "line",
+					showInLegend: true,
+					name: "Recovered",
+					color: "green",
+					dataPoints: getLineChartRecoveredData()
+				},
+				{
+					type: "line",
+					showInLegend: true,
+					name: "Deaths",
+					color: "gray",
+					dataPoints: getLineChartDeathData()
+				}]
+			});
+			chart.render();
+			$(".canvasjs-chart-credit").remove();
+			
+			function getLineChartConfirmedData(){
+					var covidData = [[${last15DaysDataIndia}]];
+					var data = [];
+				for (var i=0;i<covidData.length;i++){
+		               var obj = { x: new Date(covidData[i].date.trim()+" 2020"), y: parseInt(covidData[i].totalconfirmed)}
+		               data.push(obj);
+				}
+				return data;
+			}
+			
+			function getLineChartActiveData(){
+				var covidData = [[${last15DaysDataIndia}]];
+				var data = [];
+			for (var i=0;i<covidData.length;i++){
+	               var obj = { x: new Date(covidData[i].date.trim()+" 2020"), y: parseInt(covidData[i].totalconfirmed)-parseInt(covidData[i].totalrecovered)-parseInt(covidData[i].totaldeceased)}
+	               data.push(obj);
+			}
+			return data;
+		}
+			
+			function getLineChartRecoveredData(){
+				var covidData = [[${last15DaysDataIndia}]];
+				var data = [];
+			for (var i=0;i<covidData.length;i++){
+	               var obj = { x: new Date(covidData[i].date.trim()+" 2020"), y: parseInt(covidData[i].totalrecovered)}
+	               data.push(obj);
+			}
+			return data;
+			}
+			
+			function getLineChartDeathData(){
+				var covidData = [[${last15DaysDataIndia}]];
+				var data = [];
+			for (var i=0;i<covidData.length;i++){
+	               var obj = { x: new Date(covidData[i].date.trim()+" 2020"), y: parseInt(covidData[i].totaldeceased)}
+	               data.push(obj);
+			}
+			return data;
+			}
 		
 		</script>
 

@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
+import java.util.List;import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +35,11 @@ public class CoronaVirusTrackerController {
 		CoronaIndia coronaIndia = coronaService.fetchIndiaData();
 		List<CoronaData> indiaStates = coronaIndia.getStatewise();
 		List<DailyData> dailyData = coronaIndia.getCases_time_series();
+		List<DailyData> last15DaysData = dailyData.subList(dailyData.size()-16, dailyData.size()-1);
 		model.addAttribute("india_states", indiaStates);
 		model.addAttribute("stats", allStats);
+		model.addAttribute("stats_active", allStats.stream().sorted(Comparator.comparingInt(LocationStats :: getActive).reversed()).collect(Collectors.toList()));
+		model.addAttribute("last15DaysDataIndia", last15DaysData);
 		DecimalFormat format = new DecimalFormat("##,##,###");
 		SimpleDateFormat dateformat = new SimpleDateFormat("dd MMMM yyyy");
 		Calendar c = Calendar.getInstance();
